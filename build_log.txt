@@ -1,0 +1,164 @@
+﻿ï»¿2026-10-15T12:00:45.3549080Z Current runner version: '2.337.0'
+2026-10-15T12:00:45.3563770Z ##[group]Runner Image Provisioner
+2026-10-15T12:00:45.3564370Z Hosted Compute Agent
+2026-10-15T12:00:45.3564820Z Version: 20260828.587
+2026-10-15T12:00:45.3565230Z Commit: abac92662cab4cc7352de4f9f9d2e2419aad9c29
+2026-10-15T12:00:45.3565770Z Build Date: 2026-08-28T16:44:25Z
+2026-10-15T12:00:45.3566250Z Worker ID: {5bd05c81-e35a-4a02-8706-354941daa53e}
+2026-10-15T12:00:45.3566690Z Azure Region: westus
+2026-10-15T12:00:45.3567070Z ##[endgroup]
+2026-10-15T12:00:45.3567920Z ##[group]Operating System
+2026-10-15T12:00:45.3568300Z macOS
+2026-10-15T12:00:45.3568630Z 15.7.9
+2026-10-15T12:00:45.3569230Z 24G830
+2026-10-15T12:00:45.3569560Z ##[endgroup]
+2026-10-15T12:00:45.3569920Z ##[group]Runner Image
+2026-10-15T12:00:45.3570300Z Image: macos-15-arm64
+2026-10-15T12:00:45.3570670Z Version: 20260907.0337.1
+2026-10-15T12:00:45.3571480Z Included Software: https://github.com/actions/runner-images/blob/macos-15-arm64/20260907.0337/images/macos/macos-15-arm64-Readme.md
+2026-10-15T12:00:45.3572520Z Image Release: https://github.com/actions/runner-images/releases/tag/macos-15-arm64%2F20260907.0337
+2026-10-15T12:00:45.3573240Z ##[endgroup]
+2026-10-15T12:00:45.3573960Z ##[group]GITHUB_TOKEN Permissions
+2026-10-15T12:00:45.3575030Z Contents: write
+2026-10-15T12:00:45.3575950Z Metadata: read
+2026-10-15T12:00:45.3576650Z ##[endgroup]
+2026-10-15T12:00:45.3578310Z Secret source: Actions
+2026-10-15T12:00:45.3578870Z Cache mode: write
+2026-10-15T12:00:45.3579310Z Prepare workflow directory
+2026-10-15T12:00:45.3800410Z Prepare all required actions
+2026-10-15T12:00:45.3839050Z Getting action download info
+2026-10-15T12:00:45.6731110Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-15T12:00:45.8935180Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-10-15T12:00:46.0946100Z Complete job name: build
+2026-10-15T12:00:46.1392740Z ##[group]Run actions/checkout@v4
+2026-10-15T12:00:46.1393290Z with:
+2026-10-15T12:00:46.1396230Z   token: ***
+2026-10-15T12:00:46.1396580Z   repository: 2014502888/xlsxviewer-ios
+2026-10-15T12:00:46.1396990Z   ssh-strict: true
+2026-10-15T12:00:46.1397320Z   ssh-user: git
+2026-10-15T12:00:46.1397660Z   persist-credentials: true
+2026-10-15T12:00:46.1398040Z   clean: true
+2026-10-15T12:00:46.1398400Z   sparse-checkout-cone-mode: true
+2026-10-15T12:00:46.1398770Z   fetch-depth: 1
+2026-10-15T12:00:46.1399070Z   fetch-tags: false
+2026-10-15T12:00:46.1399390Z   show-progress: true
+2026-10-15T12:00:46.1399700Z   lfs: false
+2026-10-15T12:00:46.1400010Z   submodules: false
+2026-10-15T12:00:46.1400340Z   set-safe-directory: true
+2026-10-15T12:00:46.1400700Z   allow-unsafe-pr-checkout: false
+2026-10-15T12:00:46.1401240Z ##[endgroup]
+2026-10-15T12:00:46.4297080Z Syncing repository: 2014502888/xlsxviewer-ios
+2026-10-15T12:00:46.4299040Z ##[group]Getting Git version info
+2026-10-15T12:00:46.4299710Z Working directory is '/Users/runner/work/xlsxviewer-ios/xlsxviewer-ios'
+2026-10-15T12:00:46.4300600Z [command]/opt/homebrew/bin/git version
+2026-10-15T12:00:46.4880970Z git version 2.55.0
+2026-10-15T12:00:46.4900020Z ##[endgroup]
+2026-10-15T12:00:46.4904040Z Copying '/Users/runner/.gitconfig' to '/Users/runner/work/_temp/594ee77f-b65b-4a76-a3b4-a235fec7d856/.gitconfig'
+2026-10-15T12:00:46.4906600Z Temporarily overriding HOME='/Users/runner/work/_temp/594ee77f-b65b-4a76-a3b4-a235fec7d856' before making global git config changes
+2026-10-15T12:00:46.4907770Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-15T12:00:46.4909990Z [command]/opt/homebrew/bin/git config --global --add safe.directory /Users/runner/work/xlsxviewer-ios/xlsxviewer-ios
+2026-10-15T12:00:46.5023970Z Deleting the contents of '/Users/runner/work/xlsxviewer-ios/xlsxviewer-ios'
+2026-10-15T12:00:46.5028230Z ##[group]Initializing the repository
+2026-10-15T12:00:46.5031410Z [command]/opt/homebrew/bin/git init /Users/runner/work/xlsxviewer-ios/xlsxviewer-ios
+2026-10-15T12:00:46.5258110Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-15T12:00:46.5259070Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-15T12:00:46.5259740Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-15T12:00:46.5260330Z hint: call:
+2026-10-15T12:00:46.5260720Z hint:
+2026-10-15T12:00:46.5261120Z hint: 	git config --global init.defaultBranch <name>
+2026-10-15T12:00:46.5261570Z hint:
+2026-10-15T12:00:46.5261990Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-15T12:00:46.5262640Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-15T12:00:46.5263160Z hint:
+2026-10-15T12:00:46.5263520Z hint: 	git branch -m <name>
+2026-10-15T12:00:46.5263870Z hint:
+2026-10-15T12:00:46.5264340Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-15T12:00:46.5265200Z Initialized empty Git repository in /Users/runner/work/xlsxviewer-ios/xlsxviewer-ios/.git/
+2026-10-15T12:00:46.5270040Z [command]/opt/homebrew/bin/git remote add origin https://github.com/2014502888/xlsxviewer-ios
+2026-10-15T12:00:46.5345770Z ##[endgroup]
+2026-10-15T12:00:46.5346520Z ##[group]Disabling automatic garbage collection
+2026-10-15T12:00:46.5348230Z [command]/opt/homebrew/bin/git config --local gc.auto 0
+2026-10-15T12:00:46.5411630Z ##[endgroup]
+2026-10-15T12:00:46.5412300Z ##[group]Setting up auth
+2026-10-15T12:00:46.5416180Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-15T12:00:46.5479740Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-15T12:00:46.6660030Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-15T12:00:46.6727100Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-15T12:00:46.7493740Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-15T12:00:46.7553380Z [command]/opt/homebrew/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-15T12:00:46.8259250Z [command]/opt/homebrew/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-15T12:00:46.8323310Z ##[endgroup]
+2026-10-15T12:00:46.8323960Z ##[group]Fetching the repository
+2026-10-15T12:00:46.8328980Z [command]/opt/homebrew/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +ce62ecb11582e6a70b974714ebaeb6c30753df66:refs/remotes/origin/main
+2026-10-15T12:00:47.3826050Z From https://github.com/2014502888/xlsxviewer-ios
+2026-10-15T12:00:47.3827010Z  * [new ref]         ce62ecb11582e6a70b974714ebaeb6c30753df66 -> origin/main
+2026-10-15T12:00:47.3829240Z ##[endgroup]
+2026-10-15T12:00:47.3829940Z ##[group]Determining the checkout info
+2026-10-15T12:00:47.3830750Z ##[endgroup]
+2026-10-15T12:00:47.3832400Z [command]/opt/homebrew/bin/git sparse-checkout disable
+2026-10-15T12:00:47.3925900Z [command]/opt/homebrew/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-15T12:00:47.3988310Z ##[group]Checking out the ref
+2026-10-15T12:00:47.3994960Z [command]/opt/homebrew/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-10-15T12:00:47.4494220Z Switched to a new branch 'main'
+2026-10-15T12:00:47.4500480Z branch 'main' set up to track 'origin/main'.
+2026-10-15T12:00:47.4504880Z ##[endgroup]
+2026-10-15T12:00:47.4583420Z [command]/opt/homebrew/bin/git log -1 --format=%H
+2026-10-15T12:00:47.4643640Z ce62ecb11582e6a70b974714ebaeb6c30753df66
+2026-10-15T12:00:47.4821820Z ##[group]Run sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+2026-10-15T12:00:47.4824030Z [36;1msudo xcode-select -s /Applications/Xcode.app/Contents/Developer[0m
+2026-10-15T12:00:47.4868360Z shell: /bin/bash -e {0}
+2026-10-15T12:00:47.4869250Z ##[endgroup]
+2026-10-15T12:00:47.5595950Z ##[group]Run brew install xcodegen || echo "xcodegen already installed"
+2026-10-15T12:00:47.5597380Z [36;1mbrew install xcodegen || echo "xcodegen already installed"[0m
+2026-10-15T12:00:47.5631930Z shell: /bin/bash -e {0}
+2026-10-15T12:00:47.5632680Z ##[endgroup]
+2026-10-15T12:00:50.0155030Z [32m==>[0m [1mDownloading bottle manifests[0m
+2026-10-15T12:00:50.0240590Z âï¸ Bottle Manifest xcodegen (2.46.0)
+2026-10-15T12:00:50.0241390Z [34m==>[0m [1mWould install 1 formula:[0m
+2026-10-15T12:00:50.0242040Z xcodegen
+2026-10-15T12:00:50.0256970Z [32m==>[0m [1mFetching downloads for: [32mxcodegen[39m[0m
+2026-10-15T12:00:50.3534880Z âï¸ Bottle xcodegen (2.46.0)
+2026-10-15T12:00:50.3883230Z [34m==>[0m [1mPouring xcodegen--2.46.0.arm64_sequoia.bottle.1.tar.gz[0m
+2026-10-15T12:00:50.4798770Z ðº  /opt/homebrew/Cellar/xcodegen/2.46.0: 38 files, 7.5MB
+2026-10-15T12:00:50.4897690Z ##[group]Run xcodegen generate
+2026-10-15T12:00:50.4897990Z [36;1mxcodegen generate[0m
+2026-10-15T12:00:50.4934350Z shell: /bin/bash -e {0}
+2026-10-15T12:00:50.4934570Z ##[endgroup]
+2026-10-15T12:00:50.5290960Z No project spec found at /Users/runner/work/xlsxviewer-ios/xlsxviewer-ios/project.yml
+2026-10-15T12:00:50.5306610Z ##[error]Process completed with exit code 1.
+2026-10-15T12:00:50.5379780Z ##[group]Run actions/upload-artifact@v4
+2026-10-15T12:00:50.5380070Z with:
+2026-10-15T12:00:50.5380290Z   name: build-log
+2026-10-15T12:00:50.5380530Z   path: build_log.txt
+build/dd/Build/Products
+
+2026-10-15T12:00:50.5380840Z   retention-days: 7
+2026-10-15T12:00:50.5381080Z   if-no-files-found: warn
+2026-10-15T12:00:50.5381290Z   compression-level: 6
+2026-10-15T12:00:50.5381460Z   overwrite: false
+2026-10-15T12:00:50.5381620Z   include-hidden-files: false
+2026-10-15T12:00:50.5381820Z ##[endgroup]
+2026-10-15T12:00:50.6725160Z (node:1867) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-15T12:00:50.6725930Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-15T12:00:50.6746810Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-10-15T12:00:50.6748290Z The least common ancestor is /Users/runner/work/xlsxviewer-ios/xlsxviewer-ios. This will be the root directory of the artifact
+2026-10-15T12:00:50.6759690Z ##[warning]No files were found with the provided path: build_log.txt
+build/dd/Build/Products. No artifacts will be uploaded.
+2026-10-15T12:00:50.6875970Z Post job cleanup.
+2026-10-15T12:00:50.7709210Z [command]/opt/homebrew/bin/git version
+2026-10-15T12:00:50.7769580Z git version 2.55.0
+2026-10-15T12:00:50.7788130Z Copying '/Users/runner/.gitconfig' to '/Users/runner/work/_temp/31e3f9cb-74d2-44ec-b2ce-2a07306118aa/.gitconfig'
+2026-10-15T12:00:50.7796590Z Temporarily overriding HOME='/Users/runner/work/_temp/31e3f9cb-74d2-44ec-b2ce-2a07306118aa' before making global git config changes
+2026-10-15T12:00:50.7797340Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-15T12:00:50.7799680Z [command]/opt/homebrew/bin/git config --global --add safe.directory /Users/runner/work/xlsxviewer-ios/xlsxviewer-ios
+2026-10-15T12:00:50.7867050Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-15T12:00:50.7927960Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-15T12:00:50.8637820Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-15T12:00:50.8688800Z http.https://github.com/.extraheader
+2026-10-15T12:00:50.8695810Z [command]/opt/homebrew/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-15T12:00:50.8754050Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-15T12:00:50.9437620Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-15T12:00:50.9499290Z [command]/opt/homebrew/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-15T12:00:51.0312680Z Cleaning up orphan processes
+2026-10-15T12:00:51.0399820Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+
