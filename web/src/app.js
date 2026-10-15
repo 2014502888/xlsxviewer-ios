@@ -47,6 +47,21 @@
 
   /* iOS 原生回调（Swift evaluateJavaScript 调用） */
   window.__onFileLoaded = function (name) { loadFileByName(name); };
+  window.__onFileData = function (name, base64) {
+    try {
+      var bin = atob(base64);
+      var arr = new Uint8Array(bin.length);
+      for (var i = 0; i < bin.length; i++) arr[i] = bin.charCodeAt(i);
+      loadFileFromBlob(
+        new Blob([arr], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' }),
+        name
+      );
+    } catch (e) {
+      alert('打开失败：' + e.message);
+      resetEmpty();
+      loading = false;
+    }
+  };
   window.__onFileSaved = function (ok) {
     alert(ok ? '已保存到“表格查看器”文件夹' : '保存失败');
   };
@@ -82,7 +97,13 @@
     if (loading) return;
     loading = true;
     showLoading(name);
-    fetch('appfile://files/' + encodeURIComponent(name))
+    if (isNative) {
+      // iOS：原生读沙盒文件，回传 base64 走 __onFileData
+      callNative({ action: 'readFile', name: name });
+      return;
+    }
+    // 浏览器测试回退：本地服务器 web 根下 files/ 目录
+    fetch('files/' + encodeURIComponent(name))
       .then(function (r) {
         if (!r.ok) throw new Error('文件读取失败');
         return r.arrayBuffer();
@@ -121,9 +142,20 @@
   }
 
   function resetEmpty() {
-    $emptyTip.textContent = '尚未打开文件';
+    $emptyTip.textContent = '表格查看器';
     document.getElementById('btnEmptyOpen').style.display = 'block';
+    document.getElementById('title').textContent = '表格查看器';
   }
+
+  /* 工具栏精简：保留 WPS 手机版常用项，隐藏桌面重功能 */
+  var TOOLBAR_HIDE = {
+    currencyFormat: false, percentageFormat: false, numberDecrease: false,
+    numberIncrease: false, moreFormats: false, strikethrough: false,
+    textRotateMode: false, image: false, link: false, chart: false,
+    postil: false, pivotTable: false, frozenMode: false,
+    conditionalFormat: false, dataVerification: false, splitColumn: false,
+    screenshot: false, protection: false, print: false
+  };
 
   function openInLuckysheet(sheets, name) {
     currentFileName = name;
@@ -134,10 +166,14 @@
         lang: 'zh',
         title: name,
         data: sheets,
-        allowUpdate: false
+        allowUpdate: false,
+        showtoolbar: true,
+        showtoolbarConfig: TOOLBAR_HIDE
       });
       hideEmpty();
       document.getElementById('btnSave').disabled = false;
+      // 抬头标题 = 文件名（WPS 风格：打开后顶部显示当前文件名）
+      document.getElementById('title').textContent = name;
       // create 后按当前主题注入深色（创建出来的 DOM 需要再覆盖一次）
       luckysheetTheme(mq.matches);
     } catch (e) {

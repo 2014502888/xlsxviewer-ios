@@ -66,19 +66,25 @@
     color: var(--header-fg);
     white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }
-  /* 空态 */
+  /* 空态（WPS 首页风格） */
   #empty {
     position: fixed; left: 0; right: 0; top: var(--header-h); bottom: 0;
     display: flex; flex-direction: column;
     align-items: center; justify-content: center;
-    gap: 18px;
+    gap: 16px;
     background: var(--bar-bg);
     z-index: 1;
   }
-  #empty .big { font-size: 40px; }
+  #empty svg {
+    width: 88px; height: 88px;
+  }
+  #empty svg .grid-line { stroke: currentColor; stroke-width: 6; }
+  #empty svg .grid-head { fill: rgba(10,132,255,0.15); }
   #empty .tip { font-size: 15px; color: #888; }
+  #empty .sub { font-size: 13px; color: #999; }
   #empty .open-btn {
-    padding: 10px 30px;
+    margin-top: 6px;
+    padding: 11px 34px;
     font-size: 16px;
     color: #ffffff;
     background: #0a84ff;
@@ -100,8 +106,15 @@
   </div>
 
   <div id="empty">
-    <div class="big">📄</div>
-    <div class="tip">尚未打开文件</div>
+    <svg viewBox="0 0 120 120" aria-hidden="true">
+      <rect class="grid-line" x="18" y="22" width="84" height="76" rx="6" fill="none"/>
+      <line class="grid-line" x1="18" y1="50" x2="102" y2="50"/>
+      <line class="grid-line" x1="46" y1="22" x2="46" y2="98"/>
+      <line class="grid-line" x1="74" y1="22" x2="74" y2="98"/>
+      <rect class="grid-head" x="19" y="23" width="82" height="26" rx="4"/>
+    </svg>
+    <div class="tip">表格查看器</div>
+    <div class="sub">离线打开 xlsx / xls / csv 表格，支持编辑、筛选、求和、排序</div>
     <button class="open-btn" id="btnEmptyOpen">打开表格文件</button>
   </div>
 

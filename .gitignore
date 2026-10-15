@@ -1,5 +1,6 @@
 node_modules/
 ref_ios_src/
+wps_ref/
 verify*.js
 probe*.js
 shot_*.png

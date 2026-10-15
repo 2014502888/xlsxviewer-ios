@@ -1,0 +1,3 @@
+﻿globals: {"ls":"object","le":"function","x":"object"}
+RESULT: {"title":"test.xlsx","saveDisabled":false,"kept":6,"visibleHidden":0,"toolbarBtns":12}
+dark shot ok

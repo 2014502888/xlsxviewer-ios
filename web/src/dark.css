@@ -11,6 +11,10 @@ body.dark .luckysheet-info-window,
 body.dark #luckysheet-sheets,
 body.dark #luckysheet-sheet-area { background: #000000 !important; }
 body.dark .luckysheet-icon-img-container { filter: invert(1); }
+/* 深色空态：表格图标/主文字白色，副文字灰色 */
+body.dark #empty { color: #ffffff; }
+body.dark #empty .sub { color: #8e8e93; }
+body.dark #empty .tip { color: #ffffff; }
 body.dark #luckysheet [class*="toolbar"],
 body.dark #luckysheet [class*="sheets"],
 body.dark #luckysheet [class*="count"],

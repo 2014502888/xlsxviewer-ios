@@ -142,9 +142,20 @@
   }
 
   function resetEmpty() {
-    $emptyTip.textContent = '尚未打开文件';
+    $emptyTip.textContent = '表格查看器';
     document.getElementById('btnEmptyOpen').style.display = 'block';
+    document.getElementById('title').textContent = '表格查看器';
   }
+
+  /* 工具栏精简：保留 WPS 手机版常用项，隐藏桌面重功能 */
+  var TOOLBAR_HIDE = {
+    currencyFormat: false, percentageFormat: false, numberDecrease: false,
+    numberIncrease: false, moreFormats: false, strikethrough: false,
+    textRotateMode: false, image: false, link: false, chart: false,
+    postil: false, pivotTable: false, frozenMode: false,
+    conditionalFormat: false, dataVerification: false, splitColumn: false,
+    screenshot: false, protection: false, print: false
+  };
 
   function openInLuckysheet(sheets, name) {
     currentFileName = name;
@@ -155,10 +166,14 @@
         lang: 'zh',
         title: name,
         data: sheets,
-        allowUpdate: false
+        allowUpdate: false,
+        showtoolbar: true,
+        showtoolbarConfig: TOOLBAR_HIDE
       });
       hideEmpty();
       document.getElementById('btnSave').disabled = false;
+      // 抬头标题 = 文件名（WPS 风格：打开后顶部显示当前文件名）
+      document.getElementById('title').textContent = name;
       // create 后按当前主题注入深色（创建出来的 DOM 需要再覆盖一次）
       luckysheetTheme(mq.matches);
     } catch (e) {
