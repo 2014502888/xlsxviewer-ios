@@ -18,8 +18,8 @@ class ViewController: UIViewController, WKScriptMessageHandler, UIDocumentPicker
         let bridge = WKUserContentController()
         bridge.add(self, name: "xlsxBridge")
         config.userContentController = bridge
-        config.setValue(true, forKey: "allowUniversalAccessFromFileURLs")
-        config.setValue(true, forKey: "allowFileAccessFromFileURLs")
+        // 注意：不加任何私有 KVC（setValue:forKey: "allowUniversalAccessFromFileURLs" 等）
+        // iOS 16.5 上会抛 NSUnknownKeyException 直接崩溃；loadFileURL(allowingReadAccessTo:) 已足够
 
         webView = WKWebView(frame: view.bounds, configuration: config)
         webView.navigationDelegate = self
