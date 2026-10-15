@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>表格查看器</title>
+<!-- 离线资源：全部相对路径，iOS 通过 appfile:// 协议加载 -->
+<link rel="stylesheet" href="vendor/css/luckysheet.css">
+<link rel="stylesheet" href="vendor/css/iconfont.css">
+<link rel="stylesheet" href="vendor/css/flatpickr.min.css">
+<link rel="stylesheet" href="dark.css">
+<style>
+  /* ===== 抬头栏：浅色白底黑字 / 深色黑底白字，标题居中 ===== */
+  :root {
+    --header-bg: #ffffff;
+    --header-fg: #000000;
+    --bar-bg: #f5f6f7;
+    --header-h: calc(52px + env(safe-area-inset-top));
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --header-bg: #000000;
+      --header-fg: #ffffff;
+      --bar-bg: #000000;
+    }
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body {
+    margin: 0; padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+    background: var(--bar-bg);
+  }
+  /* 抬头：固定顶，左右按钮 + 居中标题（扣除按钮占位） */
+  #header {
+    position: fixed; left: 0; right: 0; top: 0;
+    height: 52px;
+    display: flex; align-items: center;
+    background: var(--header-bg);
+    border-bottom: 1px solid rgba(128,128,128,0.25);
+    z-index: 9999;
+    padding-top: env(safe-area-inset-top);
+  }
+  #header .btn {
+    flex: 0 0 auto;
+    min-width: 64px;
+    padding: 0 12px;
+    height: 44px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    color: #0a84ff;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    -webkit-user-select: none; user-select: none;
+  }
+  #header .btn:active { opacity: 0.5; }
+  #header .btn:disabled { opacity: 0.35; pointer-events: none; }
+  #header .spacer { flex: 0 0 auto; min-width: 64px; }
+  #header #title {
+    flex: 1 1 auto;
+    text-align: center;
+    font-size: 18px; font-weight: 600;
+    color: var(--header-fg);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  /* 空态 */
+  #empty {
+    position: fixed; left: 0; right: 0; top: var(--header-h); bottom: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 18px;
+    background: var(--bar-bg);
+    z-index: 1;
+  }
+  #empty .big { font-size: 40px; }
+  #empty .tip { font-size: 15px; color: #888; }
+  #empty .open-btn {
+    padding: 10px 30px;
+    font-size: 16px;
+    color: #ffffff;
+    background: #0a84ff;
+    border: none; border-radius: 22px;
+    cursor: pointer;
+  }
+  /* Luckysheet 容器 */
+  #luckysheet {
+    position: fixed; left: 0; right: 0; top: var(--header-h); bottom: 0;
+    margin: 0; padding: 0;
+  }
+</style>
+</head>
+<body>
+  <div id="header">
+    <button class="btn" id="btnOpen">打开</button>
+    <div id="title">表格查看器</div>
+    <button class="btn" id="btnSave">保存</button>
+  </div>
+
+  <div id="empty">
+    <div class="big">📄</div>
+    <div class="tip">尚未打开文件</div>
+    <button class="open-btn" id="btnEmptyOpen">打开表格文件</button>
+  </div>
+
+  <div id="luckysheet"></div>
+
+  <input type="file" id="fileInput" accept=".xlsx,.xls,.csv" style="display:none">
+
+  <script src="vendor/jquery.min.js"></script>
+  <script src="vendor/jquery.mousewheel.js"></script>
+  <script src="vendor/dayjs.min.js"></script>
+  <script src="vendor/flatpickr.min.js"></script>
+  <script src="vendor/numeral.js"></script>
+  <script src="vendor/pako.min.js"></script>
+  <script src="vendor/luckysheet.umd.js"></script>
+  <script src="vendor/luckyexcel.umd.js"></script>
+  <script src="vendor/xlsx.full.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

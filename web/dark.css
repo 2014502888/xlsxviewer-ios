@@ -1,0 +1,65 @@
+/* 表格查看器 - 深色覆盖
+ * 深色下：DOM 全量纯黑 + canvas 反转（网格区黑底白字）+ 弹层深色
+ */
+body.dark .luckysheet,
+body.dark .luckysheet-toolbar,
+body.dark .luckysheet-formula-bar,
+body.dark .luckysheet-sheets,
+body.dark .luckysheet-count-bar,
+body.dark .luckysheet-scrollbar,
+body.dark .luckysheet-info-window,
+body.dark #luckysheet-sheets,
+body.dark #luckysheet-sheet-area { background: #000000 !important; }
+body.dark .luckysheet-icon-img-container { filter: invert(1); }
+body.dark #luckysheet [class*="toolbar"],
+body.dark #luckysheet [class*="sheets"],
+body.dark #luckysheet [class*="count"],
+body.dark #luckysheet [class*="formula"],
+body.dark #luckysheet [class*="scrollbar"] {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border-color: #3a3a3c !important;
+}
+body.dark .luckysheet-grid-window canvas { filter: invert(1) hue-rotate(180deg); }
+body.dark .luckysheet-toolbar .luckysheet-toolbar-button,
+body.dark .luckysheet-toolbar .luckysheet-toolbar-menu-button,
+body.dark .luckysheet-toolbar .luckysheet-toolbar-combo-button,
+body.dark .luckysheet-sheets-item,
+body.dark .luckysheet-sheets-add,
+body.dark .luckysheet-sheets-m,
+body.dark .luckysheet-formula-bar * { color: #ffffff !important; }
+body.dark .luckysheet-sheets-item-active { color: #0a84ff !important; }
+body.dark .luckysheet-cell-input,
+body.dark .luckysheet-input-box,
+body.dark #luckysheet-input-box {
+  background: #1c1c1e !important;
+  color: #ffffff !important;
+}
+body.dark .luckysheet-contextmenu,
+body.dark .luckysheet-modal-dialog,
+body.dark .luckysheet-modal-dialog-content,
+body.dark .luckysheet-cellFormat-config,
+body.dark .luckysheet-cols-menu,
+body.dark .luckysheet-rows-menu {
+  background: #1c1c1e !important;
+  color: #ffffff !important;
+  border-color: #3a3a3c !important;
+}
+body.dark .luckysheet-contextmenu .luckysheet-contextmenu-item,
+body.dark .luckysheet-modal-dialog * { color: #ffffff !important; }
+body.dark .luckysheet-contextmenu .luckysheet-contextmenu-item:hover { background: #2c2c2e !important; }
+body.dark .flatpickr-calendar {
+  background: #1c1c1e !important;
+  color: #ffffff !important;
+  border-color: #3a3a3c !important;
+}
+body.dark .flatpickr-day { color: #dddddd !important; }
+body.dark .flatpickr-day.today { border-color: #0a84ff !important; }
+body.dark .flatpickr-day.selected { background: #0a84ff !important; color: #fff !important; }
+body.dark .flatpickr-weekday, body.dark .flatpickr-month, body.dark .flatpickr-current-month,
+body.dark .flatpickr-weekday span { color: #ffffff !important; }
+body.dark input, body.dark select, body.dark textarea {
+  background: #111111 !important;
+  color: #ffffff !important;
+  border-color: #3a3a3c !important;
+}

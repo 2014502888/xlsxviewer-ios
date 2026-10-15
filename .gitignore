@@ -1,0 +1,8 @@
+node_modules/
+ref_ios_src/
+verify*.js
+probe*.js
+shot_*.png
+verify_out*.txt
+test.xlsx
+.DS_Store
